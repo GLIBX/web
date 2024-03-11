@@ -7,7 +7,7 @@ const Footer = () => {
   const startYear = 2019;
 
   return (
-    <Box component="footer" sx={{ bgcolor: 'background.paper', py: 6 }}>
+    <Box component="footer" sx={{ bgcolor: 'transparent', py: 6 }}>
       <Container maxWidth="lg" sx={{ textAlign: 'center' }}>
         <Box sx={{ mb: 2 }}>
           {/* Social Icons */}
