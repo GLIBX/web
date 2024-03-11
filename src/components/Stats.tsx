@@ -3,7 +3,8 @@ import { Box, Card, CardContent, Typography, useTheme, CircularProgress } from '
 
 interface ValidatorStats {
   moniker: string;
-  tokens: string;
+  tokens: number; // Storing tokens as a number for calculation
+  totalValue: string; // The value in USD
   commissionRate: string;
 }
 
@@ -21,7 +22,7 @@ const StatCard: React.FC<StatCardProps> = ({ title, value }) => {
       color: theme.palette.text.primary,
       m: 1, // margin
       borderRadius: theme.shape.borderRadius,
-      boxShadow: theme.shadows[5], // shadow to match your design
+      boxShadow: theme.shadows[5], // shadow to match design
     }}>
       <CardContent sx={{
         display: 'flex',
@@ -51,13 +52,21 @@ const Stats: React.FC = () => {
   useEffect(() => {
     const fetchValidatorStats = async () => {
       try {
-        const response = await fetch('https://api-agoric.nodes.guru/cosmos/staking/v1beta1/validators/agoricvaloper1xvzrfcwnegxqgtqlswnra6g7483puykr5w627y');
-        const data = await response.json();
+        const validatorResponse = await fetch('https://api-agoric.nodes.guru/cosmos/staking/v1beta1/validators/agoricvaloper1xvzrfcwnegxqgtqlswnra6g7483puykr5w627y');
+        const validatorData = await validatorResponse.json();
+
+        const priceResponse = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=agoric&vs_currencies=usd');
+        const priceData = await priceResponse.json();
+        
+        const tokenPrice = priceData.agoric.usd;
+        const tokens = parseInt(validatorData.validator.tokens) / 1e6;
+        const totalValue = (tokens * tokenPrice).toFixed(2);
 
         const stats: ValidatorStats = {
-          moniker: data.validator.description.moniker,
-          tokens: (parseInt(data.validator.tokens) / 1e6).toFixed(2), // Convert tokens to a human-readable format
-          commissionRate: (parseFloat(data.validator.commission.commission_rates.rate) * 100).toFixed(2) + '%', // Convert to percentage
+          moniker: validatorData.validator.description.moniker,
+          tokens: tokens,
+          totalValue: totalValue,
+          commissionRate: (parseFloat(validatorData.validator.commission.commission_rates.rate) * 100).toFixed(2) + '%', // Convert to percentage
         };
 
         setValidatorStats(stats);
@@ -84,19 +93,22 @@ const Stats: React.FC = () => {
   }
 
   return (
-    <>
-    <Box sx={{
-      display: 'flex',
-      justifyContent: 'center',
-      flexWrap: 'wrap',
-      p: 2, // padding
-    }}>
-      <StatCard title="Moniker" value={validatorStats.moniker} />
-      <StatCard title="Tokens" value={`${validatorStats.tokens} BLD`}  />
-      <StatCard title="Commission Rate" value={validatorStats.commissionRate} />
-      {/* Add more StatCards as needed */}
+    <Box sx={{ width: '100%', textAlign: 'center', p: 2 }}>
+      <Typography variant="h4" gutterBottom>
+        Agoric Infrastructure Stats
+      </Typography>
+      <Box sx={{
+        display: 'flex',
+        justifyContent: 'center',
+        flexWrap: 'wrap',
+      }}>
+        <StatCard title="Moniker" value={validatorStats.moniker} />
+        <StatCard title="Tokens" value={validatorStats.tokens.toString()} />
+        <StatCard title="Total Value" value={`$${validatorStats.totalValue} USD`} />
+        <StatCard title="Commission Rate" value={validatorStats.commissionRate} />
+        {/* Add more StatCards as needed */}
+      </Box>
     </Box>
-    </>
   );
 };
 
