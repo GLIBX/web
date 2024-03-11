@@ -5,6 +5,7 @@ import { lightTheme, darkTheme } from './theme';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Footer from './components/Footer';
+import Stats from './components/Stats';
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -20,6 +21,7 @@ function App() {
       <CssBaseline />
       <Navbar darkMode={darkMode} handleThemeChange={() => setDarkMode(!darkMode)} />
       <Hero />
+      <Stats />
       <Footer />
     </ThemeProvider>
   );
