@@ -42,7 +42,7 @@ const Hero = () => {
         display: 'block', 
       }}
     >
-      <source src="/glibx-welcome-video.mp4" type="video/mp4" />
+      <source src="https://glibx-assets.s3.amazonaws.com/glibx-welcome-video.mp4" type="video/mp4" />
       Your browser does not support the video tag.
     </video>
   </Box>
