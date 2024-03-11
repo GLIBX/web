@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { ThemeProvider, CssBaseline } from '@mui/material';
 import { lightTheme, darkTheme } from './theme';
 import Navbar from './components/Navbar';
+import Hero from './components/Hero';
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -17,6 +18,7 @@ function App() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Navbar darkMode={darkMode} handleThemeChange={() => setDarkMode(!darkMode)} />
+      <Hero />
     </ThemeProvider>
   );
 }

@@ -16,10 +16,10 @@ const Navbar: React.FC<NavbarProps> = ({ darkMode, handleThemeChange }) => {
       boxShadow: 'none',
       color: (theme) => theme.palette.text.primary // 
     }}>
-      <Container maxWidth="xl">
+      <Container maxWidth="lg">
         <Toolbar disableGutters>
           <Link to="/" style={{ textDecoration: 'none', color: 'inherit', display: 'flex', alignItems: 'center' }}>
-            <img src={logo} alt="Glix VC Venture Logo" style={{ maxHeight: '150px', marginRight: '10px' }} />
+            <img src={logo} alt="Glix VC Venture Logo" style={{ maxHeight: '100px', marginRight: '10px' }} />
           </Link>
           <Box sx={{ flexGrow: 1 }} /> {/* This pushes the menu items to the right */}
           
