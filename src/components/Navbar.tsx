@@ -8,15 +8,18 @@ interface NavbarProps {
 }
 
 const Navbar: React.FC<NavbarProps> = ({ darkMode, handleThemeChange }) => {
-  // Determine which logo to use based on the theme
-  const logo = darkMode ? '/logo-black.png' : '/logo-white.png';
+  const logo = darkMode ? '/logo-white.png' : '/logo-black.png';
 
   return (
-<AppBar position="static" style={{ background: 'transparent', boxShadow: 'none' }}>
+    <AppBar position="static" sx={{
+      background: 'transparent',
+      boxShadow: 'none',
+      color: (theme) => theme.palette.text.primary // 
+    }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Link to="/" style={{ textDecoration: 'none', color: 'inherit', display: 'flex', alignItems: 'center' }}>
-            <img src={logo} alt="Glix VC Venture Logo" style={{ maxHeight: '50px', marginRight: '10px' }} />
+            <img src={logo} alt="Glix VC Venture Logo" style={{ maxHeight: '150px', marginRight: '10px' }} />
           </Link>
           <Box sx={{ flexGrow: 1 }} /> {/* This pushes the menu items to the right */}
           
