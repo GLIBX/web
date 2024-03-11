@@ -23,7 +23,7 @@ const Footer = () => {
         </Typography>
         <Typography variant="body2" color="text.secondary" align="center">
           Contact us at: 
-          <MuiLink href="mailto:info@glibx.com" sx={{ ml: 0.5 }}>
+          <MuiLink href="mailto:info@glibx.com" sx={{ ml: 0.5, color: 'green' }}>
             info@glibx.com
           </MuiLink>
         </Typography>
