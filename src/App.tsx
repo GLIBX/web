@@ -9,7 +9,7 @@ function App() {
   const [darkMode, setDarkMode] = useState(false);
   const theme = darkMode ? darkTheme : lightTheme;
 
-  // Apply the theme background to the body
+  // Apply the theme background to the body//
   useEffect(() => {
     document.body.style.background = theme.palette.background.default;
   }, [theme]);
