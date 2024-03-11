@@ -4,6 +4,7 @@ import { ThemeProvider, CssBaseline } from '@mui/material';
 import { lightTheme, darkTheme } from './theme';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import Footer from './components/Footer';
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -19,6 +20,7 @@ function App() {
       <CssBaseline />
       <Navbar darkMode={darkMode} handleThemeChange={() => setDarkMode(!darkMode)} />
       <Hero />
+      <Footer />
     </ThemeProvider>
   );
 }
