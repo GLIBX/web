@@ -19,7 +19,7 @@ const Navbar: React.FC<NavbarProps> = ({ darkMode, handleThemeChange }) => {
   const menuItems = [
     { name: 'About Us', path: '/about-us' },
     { name: 'Portfolio', path: '/portfolio' },
-    { name: 'Team', path: '/team' },
+    { name: 'Projects', path: '/projects' },
   ];
 
   return (
