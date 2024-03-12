@@ -96,7 +96,7 @@ const Stats: React.FC = () => {
     }
   
     return (
-      <Box sx={{ width: '100%', textAlign: 'center', p: 2 }}>
+      <Box sx={{ width: '100%', textAlign: 'center' }}>
         <Typography variant="h4" gutterBottom>
           Agoric Infrastructure Stats
         </Typography>

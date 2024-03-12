@@ -13,13 +13,14 @@ const Hero = () => {
         justifyContent: 'center',
         height: '80vh',
         width: '100%',
-        // px: { xs: 1, sm: 2, md: 3 }, 
+        px: { xs: 1, sm: 2, md: 3 }, // px is shorthand for padding left and right, responsive
       }}>
       <Box sx={{
   flex: 1,
   display: 'flex',
   justifyContent: 'center',
-  alignItems: 'center'
+  alignItems: 'center',
+  px: 4, 
 }}>
   <Box sx={{
     maxWidth: '100%',
