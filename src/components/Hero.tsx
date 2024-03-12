@@ -19,8 +19,7 @@ const Hero = () => {
   flex: 1,
   display: 'flex',
   justifyContent: 'center',
-  alignItems: 'center',
-  px: 4, // Keep your existing padding
+  alignItems: 'center'
 }}>
   <Box sx={{
     maxWidth: '100%',
