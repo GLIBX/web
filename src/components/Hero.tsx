@@ -13,7 +13,7 @@ const Hero = () => {
         justifyContent: 'center',
         height: '80vh',
         width: '100%',
-        px: { xs: 1, sm: 2, md: 3 }, // px is shorthand for padding left and right, responsive
+        // px: { xs: 1, sm: 2, md: 3 }, 
       }}>
       <Box sx={{
   flex: 1,
