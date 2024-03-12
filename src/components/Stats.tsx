@@ -96,7 +96,7 @@ const Stats: React.FC = () => {
     }
   
     return (
-      <Box sx={{ width: '100%', textAlign: 'center', p: 2 }}>
+      <Box sx={{ width: '100%', textAlign: 'center' }}>
         <Typography variant="h4" gutterBottom>
           Agoric Infrastructure Stats
         </Typography>
@@ -106,10 +106,10 @@ const Stats: React.FC = () => {
           flexWrap: 'wrap',
         }}>
           <StatCard title="Glibx Moniker" value={validatorStats.moniker} />
-          <StatCard title="Tokens Staked" value={validatorStats.tokens.toString()} />
+          <StatCard title="Tokens Stake With Glibx" value={validatorStats.tokens.toString()} />
           <StatCard title="Total Value" value={`$${validatorStats.totalValue}`} />
           <StatCard title="Commission Rate" value={validatorStats.commissionRate} />
-          <StatCard title="BLD Price" value={`$${currentPrice}`} />
+          <StatCard title="Current BLD Price" value={`$${currentPrice}`} />
         </Box>
       </Box>
     );
